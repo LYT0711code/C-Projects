@@ -1,0 +1,115 @@
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+using namespace std;
+int main(int argc, char** argv) {
+	cout<<"這裡是電影院\n";
+	cout<<"這是我們新推出的電影自動訂票系統\n";
+	cout<<"歡迎光臨\n";
+	int y ,d ,c;
+	char s ;
+	char seat[5][20];
+	
+	for(int a=0;a<5;a++ )
+	{
+		for(int b=0;b<20;b++ )
+		{
+		  seat[a][b]= 'O';	
+		}
+	}
+	
+	for(int a=0;a<5;a++)
+	{
+		seat[a][5]='w';
+		seat[a][14]='w';
+	}
+	cout<<"  ABCDE FGHIJKLM NOPQR"<<endl;
+	
+	for(int a=0;a<5;a++)
+	{
+		cout<< a+1 << " ";
+		
+		for(int b=0;b<20;b++)
+		{
+			cout<< seat[a][b] ;
+		}
+		cout<< endl;
+	}
+	
+	bool yes_go= true;
+	while(yes_go)
+	{
+		
+		cout<<"\n請問你要訂票嗎？(y/n)";
+		cin>> s;
+		
+		if(s=='y'||s=='Y')
+		{
+			cout<<"請等一下.......";
+			cout<<"\n請問你要選第幾行第幾列？";
+			cout<<"\n1~20： ";
+			cin>> c;
+			cout<<"\n1~5：";
+			cin>> d;
+			if(c>20||c<1||d>5||d<1) 
+			{ 
+			cout<<"Error!";
+			} 
+		
+			else if(seat[c][d]=='W')
+			{
+				cout<<"很抱歉這裡是走道,請你重新選取" << endl;
+			}
+			else if(seat[c][d]=='X')
+			{
+				cout<<"很抱歉這裡有人定位,請你重新選取" << endl;
+			}
+		    else  if(20>=c>=1&&5>=d>=1)
+			{
+				cout<<"ok" <<endl; 
+			
+			cout<<"please check(" ;
+			cout<< c; 
+			cout<<",";
+			cout<< d; 
+			cout<<")\n如果正確請輸入y如果不正確請輸入n ";
+			char t;
+			cin>>t;
+			if(t=='y'||t=='Y')
+			{
+				cout<<"謝謝惠顧,歡迎下次再來";
+			}
+			else if(t=='n'||t=='N')
+			{
+				cout<<"請重新輸入"; 
+			}
+			
+			else 
+			{
+				cout<<"Error!";
+			}
+			
+			} 
+			
+			
+			
+			
+			
+			
+		}else if(s=='n'||s=='N')
+		{
+			cout<<"Thank";
+		}else cout<<"error";
+	
+	
+	
+	
+	
+	
+	}
+	
+
+	
+	
+	return 0;
+}
