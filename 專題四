@@ -1,0 +1,90 @@
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+using namespace std; 
+int main(int argc, char** argv) {
+	int choise;
+	int patient_SBP , patient_DBP;
+	int patient_TC , patient_LDL , patient_HDL , patient_TG;
+	
+	while(1)
+	{
+		cout<<"\n\nWhich one would you like to consult?\n";
+		cout<<"1.Blood Pressure\n";
+		cout<<"2.Blood Lipids\n";
+		cout<<"3.Blood Glucose\n";
+		cin>>choise;
+		
+		if(choise==1)
+		{
+			cout<<"\nPlease enter Systolic Blood Pressure\n";
+			cin>>patient_SBP;
+			cout<<"\nPlease enter Diastolic Blood Pressure\n";
+			cin>>patient_DBP;
+			if(300<patient_SBP||40>patient_DBP) 
+			{
+				cout<<"Error.";
+			}
+			else if(patient_SBP<120 && patient_DBP<80)
+			{
+				cout<<"\nYour blood pressure is normal and you do not need to take any medication.\nPlease continue to maintain this level.\n";
+			}
+		    else if(140<patient_SBP&&90<patient_DBP)
+			{
+				cout<<"\nPlease take your medication on time and follow a low-salt, high-exercise, and weight-control diet \nto keep your blood pressure stable below 130/80 to protect your cardiovascular health.";
+				cout<<"\nMedication recommendations:\nClass A: Angiotensin inhibitors (ACEIs/ARBs)\nClass B: Beta-blockers\nClass C: Calcium channel blockers (CCBs)\nClass D: Diuretics";
+			}		
+			else if(120<=patient_SBP<=139&&80<=patient_DBP<=89)
+			{ 
+				cout<<"\nYour blood pressure is currently in the pre-hypertension stage.\nStarting non-drug intervention now has a very high chance of preventing it from developing into chronic hypertension.";
+			}
+			
+		    
+		}
+		if(choise==2)
+		{
+			
+			cout<<"\nPlease enter Total Cholesterol\n";
+			cin>>patient_TC;
+			cout<<"\nPlease enter LDL (Bad)\n";
+			cin>>patient_LDL;
+			cout<<"\nPlease enter HDL (Good)\n";
+			cin>>patient_HDL;
+			cout<<"\nPlease enter Triglycerides\n";
+			cin>>patient_TG;
+			if(patient_TC>400||patient_LDL>300||patient_HDL>150||patient_TG>300)
+			{
+				cout<<"Error!";
+			}
+			else if(patient_TC<=200&&patient_LDL<=130&&patient_HDL>40&&patient_TG<=150)
+			{
+				cout<<"\nYour blood lipids is normal and you do not need to take any medication.\nPlease continue to maintain this level.\n";
+			}
+		    else if(patient_TC>=240&&patient_LDL>=160&&patient_HDL<35&&patient_TG>=150)
+			{
+				cout<<"\nOptimize lipid profiles through therapeutic lifestyle changes and evidence-based pharmacotherapy \nto achieve target LDL-C levels.\n";
+				cout<<"\nMedication recommendations:\nStatins:Lipitor、Crestor\nCholesterol Absorption Inhibitors:Ezetrol\nFibrates:Lipanthyl\nPCSK9 Inhibitors:Repatha";
+				
+			}		
+			else if(239>=patient_TC>200&&159>=patient_LDL>130&&35<patient_HDL<40&&patient_TG>150)
+			{
+				cout<<"\nPharmacological intervention depends on your overall cardiovascular risk stratification.\n";
+				cout<<"Eat less fat, move more, and stay high on fiber.\n";
+				
+			}
+		    
+		}
+		
+		if(choise!=1&&choise!=2&&choise!=3)
+		{
+			cout<<"Error!";
+		}
+		
+		
+		
+		
+	}
+	
+	
+	return 0;
+}
