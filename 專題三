@@ -1,0 +1,94 @@
+#include <iostream>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+using namespace std; 
+int main(int argc, char** argv) {
+	int P_su ,P_num ,D_su ,D_num;
+	char ch ,i;
+	srand(time(NULL));	
+	cout<<"There have four suit and 1~13 number\n";	
+	
+	
+	D_su=rand()%4+1;	
+	for(D_num=0;D_num<1;D_num++)
+	{
+		D_num=rand()%13+1;
+		cout<<"莊家的牌:"<<endl<<D_num;
+	
+	}//end for
+	switch(D_su)	
+	{
+		case 1: cout<<"club";
+			break;
+		case 2: cout<<"diamond";
+			break;
+		case 3: cout<<"heart";
+			break;
+		case 4: cout<<"spades";
+			break;
+		cout<<endl<<D_su;
+	}	//end swuswitch
+	
+	
+	while(1)
+	{cout<<"\nDo want to play with dealer?(y/n)";	
+	cin >>i;	
+		
+	if(i=='y'||i=='Y')	
+	{
+		P_su=rand()%4+1;	
+		for(P_num=0;P_num<1;P_num++)
+		{
+			P_num=rand()%13+1;
+			cout<<"你的牌:"<<endl<<P_num;
+		
+		}
+		switch(P_su)	
+		{
+			case 1: cout<<"spades";
+				break;
+			case 2: cout<<"heart";
+				break;
+			case 3: cout<<"club";
+				break;
+			case 4: cout<<"diamond";
+				break;
+			cout<<endl<<P_su;
+			
+		}	//end switch
+	
+		if(D_num>P_num)
+			{
+				cout<<"\nYou lose... so sad";
+			}else if(P_num>D_num)
+			{
+				cout<<"\nYou win ... congratulations";
+			}else if(D_num=P_num&&D_su>P_su)
+			{
+				cout<<"\nYou lose... so sad";
+			}else if(P_num=D_num&&P_su>D_su)
+			{
+				cout<<"\nYou win ... congratulations";
+			}	
+			else if(i!='y'||i!='Y'||i!='n'||i!='N')
+			{
+				cout<<"Error!";
+			}
+			
+			
+	}
+	else if(i=='n'||i=='N')
+	{
+		cout<<"\nThank for join";
+	}
+			
+		
+		
+		
+	}
+	
+	
+	return 0;
+}
